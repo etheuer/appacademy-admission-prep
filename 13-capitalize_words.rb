@@ -36,14 +36,38 @@ def capitalize_words(string)
 end
 
 
-# Official solution:
 =begin
+# My solution 2 (imprvovement of official solution):
+
+def capitalize_words(string)
+    words = string.split(" ") 
     
+    words.each do |word|
+        word[0] = word[0].upcase
+    end
+    
+    new_string = words.join(" ")
+    puts new_string #debug
+    return new_string
+end
 
+# Official solution:
 
+def capitalize_words(string)
+  words = string.split(" ")
+
+  idx = 0
+  while idx < words.length
+    word = words[idx]
+
+    word[0] = word[0].upcase
+
+    idx += 1
+  end
+
+  return words.join(" ")
+end
 =end
-
-
 
 # These are tests to check that your code is working. After writing
 # your solution, they should all print true.
