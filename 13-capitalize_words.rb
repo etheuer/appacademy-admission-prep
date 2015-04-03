@@ -11,9 +11,8 @@
 # My strategy:
 # Create new string 
 # Iterate over each letter of original string
-#    If letter is index 0, upcase.
-#    If letter has a letter at its rirgt, upcase. Exceptions: Never upcase last or spaces. 
-#    Add to new string
+#    If letter is index 0 or previous letter is a space: upcase. Add to new string.
+#    Else: add to new string.
 # Return new string
 
 
