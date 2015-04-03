@@ -8,8 +8,43 @@
 #
 # Difficulty: medium.
 
+# My strategy:
+# Create new string 
+# Iterate over each letter of original string
+#    If letter is index 0, upcase.
+#    If letter has a letter at its rirgt, upcase. Exceptions: Never upcase last or spaces. 
+#    Add to new string
+# Return new string
+
+
+
 def capitalize_words(string)
+    new_string = ''
+
+    idx = 0
+    while idx < string.length
+        if idx == 0 or string[idx-1] == ' '
+            new_string += string[idx].upcase
+        else
+            new_string += string[idx]
+        end
+
+    idx += 1
+    end
+    
+    puts new_string #debug
+    return new_string
 end
+
+
+# Official solution:
+=begin
+    
+
+
+=end
+
+
 
 # These are tests to check that your code is working. After writing
 # your solution, they should all print true.
