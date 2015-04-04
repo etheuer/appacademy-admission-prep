@@ -75,7 +75,7 @@ def longest_palindrome(string)
     puts "Checking substring_length = #{substring_length}" #debug
 
     idx_start = 0
-    idx_end = idx_start + substring_length - 1
+    idx_end = substring_length - 1
 
     while idx_end < string.length
       
@@ -84,7 +84,6 @@ def longest_palindrome(string)
       puts "Checking substring '#{substring}'" #debug
 
       if palindrome?(substring)
-        puts substring #debug
         return substring
       end
 
@@ -96,6 +95,31 @@ def longest_palindrome(string)
   end
 
 end
+
+# Official solution:
+
+# def longest_palindrome(string)
+#   best_palindrome = nil
+
+#   idx1 = 0
+#   while idx1 < string.length
+#     length = 1
+#     while (idx1 + length) <= string.length
+#       substring = string.slice(idx1, length)
+
+#       if palindrome?(substring) && (best_palindrome == nil || substring.length > best_palindrome.length)
+#         best_palindrome = substring
+#       end
+
+#       length += 1
+#     end
+
+#     idx1 += 1
+#   end
+
+#   return best_palindrome
+# end
+
 
 # These are tests to check that your code is working. After writing
 # your solution, they should all print true.
