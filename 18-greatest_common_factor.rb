@@ -5,13 +5,7 @@
 # Difficulty: medium.
 
 # My strategy:
-# Take the smallest number
-# Divide by several numbers (starting by smallest of the 2 numbers, then decreasing by 1) to find factors. Whenecer a fator is found, check if number2 is dividable by it
-
-
-
-
-
+# Divide smallerst number by several numbers (starting by smallest of the 2 numbers, then decreasing by 1) to find factors. Whenecer a fator is found, check if number2 is dividable by it
 
 
 def greatest_common_factor(number1, number2)
@@ -35,10 +29,31 @@ def greatest_common_factor(number1, number2)
         else
             factor -= 1
         end
+    
+    end
+end
+
+
+# Official solution:
+=begin
+def greatest_common_factor(number1, number2)
+  # start i at smaller of number1, number2
+  i = nil
+  if number1 <= number2
+    i = number1
+  else
+    i = number2
+  end
+
+  while true
+    if (number1 % i == 0) && (number2 % i == 0)
+      return i
     end
 
-
+    i -= 1
+  end
 end
+=end
 
 # These are tests to check that your code is working. After writing
 # your solution, they should all print true.
