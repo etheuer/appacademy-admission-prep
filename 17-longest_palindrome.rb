@@ -17,41 +17,13 @@
 # Difficulty: hard.
 
 
-# My solution:
-# Overview: check severval subtring lengths, starting from full string length and ending at 2 letters
-# At each run, start at string first letter and end when substring last letter matches sstring last letter
-#
-# Run 1 (length = 9):
-#
-#  a b d a b c b a c
-# |-----------------|
-#
-# Run 2 (length = 8):
-#
-# Start:
-#
-#  a b d a b c b a c
-# |---------------|
-#
-# End:
-#
-#  a b d a b c b a c
-#   |---------------|
-#
-#
-# Run 3 (length = 7):
-#
-# Start:
-#
-#  a b d a b c b a c
-# |-------------|
-#
-# End:
-#
-#  a b d a b c b a c
-#     |-------------|
-#
-# run until length = 2
+# My strategy:
+# Crate 2 loops: loop1 and loop2
+# loop1 takes substring starting at 1st letter and ending at last letters. At each run checks if substring is palindrome.
+  if susbstring is palindrome returns substring
+  else starts loop2
+    
+
 
 
 def palindrome?(string)
@@ -68,58 +40,7 @@ def palindrome?(string)
 end
 
 def longest_palindrome(string)
-  substring_length = string.length
-  
-  while substring_length >= 2
-
-    puts "Checking substring_length = #{substring_length}" #debug
-
-    idx_start = 0
-    idx_end = substring_length - 1
-
-    while idx_end < string.length
-      
-      substring = string.slice(idx_start, substring_length)
-
-      puts "Checking substring '#{substring}'" #debug
-
-      if palindrome?(substring)
-        return substring
-      end
-
-      idx_start += 1
-      idx_end += 1  
-    end
-
-    substring_length -= 1
-  end
-
 end
-
-# Official solution:
-
-# def longest_palindrome(string)
-#   best_palindrome = nil
-
-#   idx1 = 0
-#   while idx1 < string.length
-#     length = 1
-#     while (idx1 + length) <= string.length
-#       substring = string.slice(idx1, length)
-
-#       if palindrome?(substring) && (best_palindrome == nil || substring.length > best_palindrome.length)
-#         best_palindrome = substring
-#       end
-
-#       length += 1
-#     end
-
-#     idx1 += 1
-#   end
-
-#   return best_palindrome
-# end
-
 
 # These are tests to check that your code is working. After writing
 # your solution, they should all print true.
